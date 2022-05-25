@@ -9,13 +9,18 @@
 #define mysize 200
 
 unsigned long mytime[mysize];
-byte Voltaje[mysize];
-byte Corriente[mysize];
+byte Voltaje1[mysize];
+byte Corriente1[mysize];
+byte Voltaje2[mysize];
+byte Corriente2[mysize];
+byte Voltaje3[mysize];
+byte Corriente3[mysize];
 byte ADMUX0;
 byte ADMUX1;
 byte ADMUX2;
 byte ADMUX3;
 byte ADMUX4;
+byte ADMUX5;
 
 void setup()
 {
