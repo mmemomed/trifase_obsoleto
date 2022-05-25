@@ -45,7 +45,27 @@ void setup()
   // MUX4  MUX3  MUX2  MUX1  MUX0
   //    0     0     0     0     1
   ADMUX1|=(1<<ADLAR)|(0<<REFS1)|(1<<REFS0)|(0<<MUX3)|(0<<MUX2)|(0<<MUX1)|(1<<MUX0);
- 
+
+  //Configuración para entrada A2
+  // MUX4  MUX3  MUX2  MUX1  MUX0
+  //    0     0     0     1     0
+  ADMUX2| =(1<<ADLAR)|(0<<REFS1)|(1<<REFS0)|(0<<MUX3)|(0<<MUX2)|(1<<MUX1)|(0<<MUX0);
+
+  //Configuración para entrada A3
+  // MUX4  MUX3  MUX2  MUX1  MUX0
+  //    0     0     0     1     1
+  ADMUX3| =(1<<ADLAR)|(0<<REFS1)|(1<<REFS0)|(0<<MUX3)|(0<<MUX2)|(1<<MUX1)|(1<<MUX0);
+
+  //Configuración para entrada A4
+  // MUX4  MUX3  MUX2  MUX1  MUX0
+  //    0     0     1     0     0
+  ADMUX4| = (1<<ADLAR)|(0<<REFS1)|(1<<REFS0)|(0<<MUX3)|(1<<MUX2)|(0<<MUX1)|(0<<MUX0);
+
+  //Configuración para entrada A5
+  // MUX4  MUX3  MUX2  MUX1  MUX0
+  //    0     0     1     0     1
+  ADMUX5| = (1<<ADLAR)|(0<<REFS1)|(1<<REFS0)|(0<<MUX3)|(1<<MUX2)|(0<<MUX1)|(1<<MUX0);
+
 }
 void loop()
 {
@@ -79,6 +99,8 @@ void loop()
   } 
  // -----------------------------------------------------------------------------
 }
+
+//Función para leer 8 bits
 int analogReadFast()
 {
   ADCSRA|=(1<<ADSC);
@@ -86,3 +108,4 @@ int analogReadFast()
   while (bit_is_set(ADCSRA, ADSC));
        return ADCH;
 }
+
