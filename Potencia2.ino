@@ -77,11 +77,25 @@ void loop()
     mytime[i]=micros();
     
     ADMUX=ADMUX0;                       // Selecciona Entrada A0
-    Voltaje[i]=analogReadFast();        // Muestra de Voltaje Instantaneo
+    Voltaje1[i]=analogReadFast();        // Muestra de Voltaje Instantaneo
             
     ADMUX=ADMUX1;                       // Selecciona Entrada A1
-    Corriente[i]=analogReadFast();      // Muestra de Corriente Instantanea
+    Corriente1[i]=analogReadFast();      // Muestra de Corriente Instantanea
+
+    ADMUX=ADMUX2;                       // Selecciona Entrada A2
+    Voltaje2[i]=analogReadFast();        // Muestra de Voltaje Instantaneo
+            
+    ADMUX=ADMUX3;                       // Selecciona Entrada A3
+    Corriente2[i]=analogReadFast();      // Muestra de Corriente Instantanea
+
+    ADMUX=ADMUX4;                       // Selecciona Entrada A4
+    Voltaje3[i]=analogReadFast();        // Muestra de Voltaje Instantaneo
+            
+    ADMUX=ADMUX5;                       // Selecciona Entrada A5
+    Corriente3[i]=analogReadFast();      // Muestra de Corriente Instantanea
   }
+
+
   // -----------------------------------------------------------------------------
   // Envío de información por el puerto serie
   // -----------------------------------------------------------------------------
@@ -90,12 +104,31 @@ void loop()
   {
     Serial.print(mytime[i]);
     Serial.print("/");
-    Serial.print(Voltaje[i],DEC);
+    Serial.print(Voltaje1[i],DEC);
     Serial.print("/");
     //Serial.print('\n');
-    Serial.print(Corriente[i],DEC);
+    Serial.print(Corriente1[i],DEC);
+    Serial.println("/");
+    Serial.print('\n');
+
+    Serial.print(mytime[i]);
+    Serial.print("/");
+    Serial.print(Voltaje2[i],DEC);
+    Serial.print("/");
+    //Serial.print('\n');
+    Serial.print(Corriente2[i],DEC);
+    Serial.println("/");
+    Serial.print('\n');
+
+    Serial.print(mytime[i]);
+    Serial.print("/");
+    Serial.print(Voltaje3[i],DEC);
+    Serial.print("/");
+    //Serial.print('\n');
+    Serial.print(Corriente3[i],DEC);
     Serial.println("/");
     //Serial.print('\n');
+
   } 
  // -----------------------------------------------------------------------------
 }
